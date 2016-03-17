@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# Exit cleanly from an early interrupt
+Signal.trap("INT") { abort }
+
+# Make folders and a file at the same time.
+#
+# Usage:
+#
+# $ mkdirptouch app/views/home/index.html.slim
+#
+
+dir_and_file = ARGV.first
+
+dirs = dir_and_file.split("/")[0..-2].join("/")
+
+`mkdir -p #{dirs} && touch #{dir_and_file}`
