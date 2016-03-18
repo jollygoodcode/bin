@@ -44,3 +44,5 @@ specs.each do |spec|
   prefix_with_rspec(spec, feature_lines)
   prefix_with_rspec(spec, shared_examples_for_lines)
 end
+
+puts "Add / Uncomment this line in your spec_helper.rb: `config.disable_monkey_patching!`."
