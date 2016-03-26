@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+# Exit cleanly from an early interrupt
+Signal.trap("INT") { abort }
+
+# Reads in a file, sort alphabatically and writes back.
+#
+# Usage:
+#
+# $ sort-file foo
+#
+
+abort("Please specify filename you want to sort alphabatically.") if ARGV.empty?
+
+filename = ARGV.first
+
+IO.write filename, IO.readlines(filename).sort.join
